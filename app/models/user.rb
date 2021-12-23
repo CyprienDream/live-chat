@@ -3,4 +3,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  # define databse relationships
+  has_many :chatroom_users
+  has_many :chatrooms, through: :chatroom_users
+  has_many :messages
 end
