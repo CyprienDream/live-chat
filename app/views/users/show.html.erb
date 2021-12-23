@@ -1,14 +1,16 @@
-<h1>Show page of user <%= @user.username %></h1>
+<h1>Profile of <%= @user.username %></h1>
 <h2>email: <%= @user.email %></h2>
 
 <h3>Your chatrooms</h3>
+
 <br>
+
 <% if @previews.empty? %>
   <h4>You don't seem to have any friends...</h4>
 <% else %>
   <% @previews.each do |prev|%>
     <%= "----------" %>
-      <%= link_to prev[:user].username, chatroom_path(prev[:room]) %>
+      <strong><%= link_to prev[:user].username.capitalize, chatroom_path(prev[:room]), style: "text-decoration: none;" %></strong>
       <%= prev[:last_message] %>
     <%= "----------" %>
   <% end %>
