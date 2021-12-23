@@ -1,0 +1,15 @@
+<h1>Show page of user <%= @user.username %></h1>
+<h2>email: <%= @user.email %></h2>
+
+<h3>Your chatrooms</h3>
+<br>
+<% if @previews.nil? %>
+  <h4>You don't seem to have any friends...</h4>
+<% else %>
+  <% @previews.each do |prev|%>
+    <%= "----------" %>
+      <%= prev[:user] %>
+      <%= prev[:last_message] %>
+    <%= "----------" %>
+  <% end %>
+<% end %>
