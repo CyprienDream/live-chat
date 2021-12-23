@@ -2,23 +2,10 @@
 <html>
   <head>
     <title>LiveChat</title>
-    <meta name="description" content="Chat with random people">
-    <meta name="theme-color" content="#1CB99C" />
-
-    <!-- Facebook Open Graph data -->
-    <meta property="og:title" content="Live chat" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="<%= request.original_url %>" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="627" />
-    <meta property="og:description" content="Chat with your friends or random people" />
-    <meta property="og:site_name" content="Live Chat" />
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_pack_tag 'application' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
