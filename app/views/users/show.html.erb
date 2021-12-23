@@ -3,12 +3,12 @@
 
 <h3>Your chatrooms</h3>
 <br>
-<% if @previews.nil? %>
+<% if @previews.empty? %>
   <h4>You don't seem to have any friends...</h4>
 <% else %>
   <% @previews.each do |prev|%>
     <%= "----------" %>
-      <%= prev[:user] %>
+      <%= link_to prev[:user].username, chatroom_path(prev[:room]) %>
       <%= prev[:last_message] %>
     <%= "----------" %>
   <% end %>
