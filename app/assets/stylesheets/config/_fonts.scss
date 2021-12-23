@@ -1,0 +1,13 @@
+// Import Google fonts
+@import url('https://fonts.googleapis.com/css2?family=Sen&display=swap');
+
+@font-face {
+  font-family: "Apfel Grotezk";
+  src: font-url('./config/ApfelGrotezk-Regular.woff');
+  src: font-url('./config/ApfelGrotezk-Regular.woff2');
+}
+
+
+// Define fonts for body and headers
+$body-font: "Sen", "Helvetica", "sans-serif";
+$headers-font: "Apfel Grotezk", "Helvetica", "sans-serif";
