@@ -3,9 +3,8 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!, except: %i[home]
 
   include Pundit
-  rescue_from Pundit::NotAuthorizedError, with: :not_authorized
+  # rescue_from Pundit::NotAuthorizedError, with: :not_authorized
 
-  # after_action :verify_authorized, unless: :skip_pundit?
 
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb

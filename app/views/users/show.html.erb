@@ -1,3 +1,5 @@
+<% if policy(current_user).show? %>
+
 <h1>Profile of <%= @user.username %></h1>
 <h2>email: <%= @user.email %></h2>
 
@@ -14,4 +16,6 @@
       <%= prev[:last_message] %>
     <%= "----------" %>
   <% end %>
+<% end %>
+
 <% end %>

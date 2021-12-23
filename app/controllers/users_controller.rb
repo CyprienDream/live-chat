@@ -16,5 +16,6 @@ class UsersController < ApplicationController
       preview[:last_message] = room.messages.last
       @previews << preview
     end
+    authorize @user
   end
 end
