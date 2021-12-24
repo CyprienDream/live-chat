@@ -1,5 +1,30 @@
 class MessagesController < ApplicationController
   def create
+    raise
+    @chatroom = Chatroom.find(params[:chatroom_id])
+    @message = Message.new(message_params)
+    @message.chatroom = @chatroom
+    @message.user = current_user
+    other_user = @chatroom.users.distinct.where.not(id: current_user.id)[0]
+    message.save
+    if @message.save
+      # ChatroomChannel.broadcast_to(
+      #   @chatroom,
+      #   render_to_string(partial: "message", locals: { message: @message })
+      # )
+      # NotificationChannel.broadcast_to(
+      #   other_user,
+      #   1
+      # )
+      # redirect_to chatroom_path(@chatroom, anchor: "message-#{@message.id}")
+    else
+      render 'chatrooms/show'
+    end
+  end
 
+  private
+
+  def message_params
+    params.require(:message).permit(:content)
   end
 end
