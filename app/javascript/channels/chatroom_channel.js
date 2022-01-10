@@ -19,8 +19,9 @@ const initChatroomCable = () => {
           message.children[1].classList.add('text-right');
         }
         messagesContainer.insertAdjacentHTML('beforeend', message.innerHTML);
-
-        messagesContainer.scrollTop = messagesContainer.scrollHeight
+        console.log(messagesContainer.scrollTop);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        console.log(messagesContainer.scrollTop);
       },
     });
   }

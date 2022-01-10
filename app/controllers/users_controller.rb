@@ -14,4 +14,11 @@ class UsersController < ApplicationController
     end
     authorize @user
   end
+
+  def new_chat
+
+    # check if chatroom with same two users already exists
+    # if not create chatroom and suscribe both users
+    # redirect to chatroom or re render profile
+  end
 end

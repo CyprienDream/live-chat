@@ -14,7 +14,7 @@ class MessagesController < ApplicationController
       #   other_user,
       #   1
       # )
-      # redirect_to chatroom_path(@chatroom, anchor: "message-#{@message.id}")
+      redirect_to chatroom_path(@chatroom, anchor: "message-#{@message.id}")
     else
       render 'chatrooms/show'
     end
