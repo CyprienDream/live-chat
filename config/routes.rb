@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :chatrooms, only: %i[show create] do
-    resources :messages, only: %i[create]
+    resources :messages, only: :create
   end
 end

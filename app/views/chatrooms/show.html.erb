@@ -3,16 +3,16 @@
 
 <div id="messages" data-chatroom-id="<%= @chatroom.id %>" data-current-user-id="<%= current_user.id %>">
     <% @chatroom.messages.each do |message| %>
-    <% if message.user == current_user %>
-      <%= render 'messages/message', message: message, css_class_one: 'message-current-user', css_class_two: 'text-right' %>
-    <% else %>
-      <%= render 'messages/message', message: message, css_class_one: 'message-chat-user', css_class_two: 'text-left'%>
+      <% if message.user == current_user %>
+        <%= render 'messages/message', message: message, css_class_one: 'message-current-user', css_class_two: 'text-right' %>
+      <% else %>
+        <%= render 'messages/message', message: message, css_class_one: 'message-chat-user', css_class_two: 'text-left'%>
+      <% end %>
     <% end %>
-  <% end %>
 </div>
-
 <div class="chat-input">
-  <%= simple_form_for [ @chatroom, @message ], remote: true, html: { autocomplete: 'off' } do |f| %>
+<%= chatroom_messages_path(params[:id]) %>
+  <%= simple_form_for [@chatroom, @message], url: "/chatrooms/#{params[:id]}/messages", method: :post, remote: true, html: { autocomplete: 'off' } do |f| %>
     <%= f.input :content, label: false, placeholder: "Enter here your message" %>
     <%= f.button :submit %>
   <% end %>
