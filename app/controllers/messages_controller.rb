@@ -6,10 +6,10 @@ class MessagesController < ApplicationController
     @message.user = current_user
     other_user = @chatroom.users.distinct.where.not(id: current_user.id)[0]
     if @message.save
-      # ChatroomChannel.broadcast_to(
-      #   @chatroom,
-      #   render_to_string(partial: "message", locals: { message: @message })
-      # )
+      ChatroomChannel.broadcast_to(
+        @chatroom,
+        render_to_string(partial: 'message', locals: { message: @message })
+      )
       # NotificationChannel.broadcast_to(
       #   other_user,
       #   1

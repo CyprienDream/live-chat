@@ -11,7 +11,6 @@
     <% end %>
 </div>
 <div class="chat-input">
-<%= chatroom_messages_path(params[:id]) %>
   <%= simple_form_for [@chatroom, @message], url: "/chatrooms/#{params[:id]}/messages", method: :post, remote: true, html: { autocomplete: 'off' } do |f| %>
     <%= f.input :content, label: false, placeholder: "Enter here your message" %>
     <%= f.button :submit %>
