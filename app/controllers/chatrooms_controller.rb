@@ -13,6 +13,7 @@ class ChatroomsController < ApplicationController
       room.users << current_user
       room.users << other_user
       room.save
+      redirect_to chatroom_path(room)
     else
       redirect_to user_path(current_user)
     end
