@@ -3,6 +3,12 @@
 <h1>Profile of <%= @user.username %></h1>
 <h2>email: <%= @user.email %></h2>
 
+<%= form_with url: "/users/#{}/new_chat", method: :get do |f| %>
+  <%= f.label :username, "username" %>
+  <%= f.text_field :username %>
+  <%= f.submit "Enter" %>
+<% end %>
+
 <h3>Your chatrooms</h3>
 
 <br>
