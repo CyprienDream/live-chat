@@ -3,11 +3,14 @@
 <h1>Profile of <%= @user.username %></h1>
 <h2>email: <%= @user.email %></h2>
 
-<%= form_with url: "/users/#{}/new_chat", method: :get do |f| %>
-  <%= f.label :username, "username" %>
-  <%= f.text_field :username %>
-  <%= f.submit "Enter" %>
+<div class="new-chat">
+  <h3>Start a new conversation</h3>
+  <%= form_with url: chatrooms_path, method: :post do |f| %>
+    <%= f.label :username, "username" %>
+    <%= f.text_field :username %>
+    <%= f.submit "Enter" %>
 <% end %>
+</div>
 
 <h3>Your chatrooms</h3>
 
@@ -17,10 +20,10 @@
   <h4>You don't seem to have any friends...</h4>
 <% else %>
   <% @previews.each do |prev|%>
-    <%= "----------" %>
-      <strong><%= link_to prev[:user].username.capitalize, chatroom_path(prev[:room]), style: "text-decoration: none;" %></strong>
-      <%= prev[:last_message] %>
-    <%= "----------" %>
+    <%= "----------------------------------------------------" %> <br>
+      <strong><%= link_to prev[:user].username, chatroom_path(prev[:room]), style: "text-decoration: none;" %></strong> <br>
+      <%= prev[:last_message].nil? ? "no messages" : prev[:last_message].content  %> <br>
+    <%= "-----------------------------------------------------" %>
   <% end %>
 <% end %>
 
